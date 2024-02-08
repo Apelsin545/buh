@@ -64,7 +64,7 @@ public class MonthReport {
         for (MonthlyReportOne rep : monthReportData) {
             if (rep.isExpanse() && (rep.getQuantity() * rep.getSumOfOne() > biggestMinus)) {
                 biggestMinus = rep.getQuantity() * rep.getSumOfOne();
-            } else if (!rep.isExpanse() && (rep.getQuantity() * rep.getSumOfOne() > biggestMinus)) {
+            } else if (!rep.isExpanse() && (rep.getQuantity() * rep.getSumOfOne() > biggestPlus)) {
                 biggestPlus = rep.getQuantity() * rep.getSumOfOne();
             }
         }

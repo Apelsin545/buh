@@ -18,6 +18,7 @@ public class RunApp {
         MenuOutput();
         System.out.print("Enter the mode: ");
         int mode = in.nextInt();
+        in.nextLine();
         ArrayList<MonthReport> monthReports = new ArrayList<>();
         ArrayList<YearReport> yearReports = new ArrayList<>();
 
@@ -62,7 +63,8 @@ public class RunApp {
                     int j = 0;
                     for (int i = 0; i < 12; i++) {
                         if (rep.getIncome()[i] != 0 || rep.getExpenses()[i] != 0) {
-                            if (rep.getIncome()[i] != monthReports.get(j).getIncomeSum()) {
+                            monthReports.get(j).countIncExp();
+                            if (rep.getIncome()[i] != monthReports.get(j).getIncomeSum() || rep.getExpenses()[i] != monthReports.get(j++).getExpensesSum()) {
                                 System.out.println("month, where there is a mistake is: " + "0" + (i + 1));
 
                                 isThereAMistake = true;
@@ -89,6 +91,7 @@ public class RunApp {
             MenuOutput();
             System.out.print("Enter the mode: ");
             mode = in.nextInt();
+            in.nextLine();
         }
     }
 }
