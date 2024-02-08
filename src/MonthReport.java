@@ -8,10 +8,25 @@ public class MonthReport {
     private int month;
     private int year;
     ArrayList<MonthlyReportOne> monthReportData = new ArrayList<>();
+    private int incomeSum = 0;
+    private int expensesSum = 0;
+    private boolean isCounted = false;
 
     public MonthReport(int month, int year) {
         this.month = month;
         this.year = year;
+    }
+
+    public void countIncExp() {
+        for (MonthlyReportOne rep : monthReportData) {
+            if (rep.isExpanse()) {
+                expensesSum += rep.getSumOfOne() * rep.getQuantity();
+            } else {
+                incomeSum += rep.getSumOfOne() * rep.getQuantity();
+            }
+        }
+
+        isCounted = true;
     }
 
     public void readCSVFile(File file) {

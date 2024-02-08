@@ -9,6 +9,7 @@ public class YearReport {
     ArrayList<YearlyReportOne> yearReportData = new ArrayList<>();
     private int[] income = new int[12];
     private int[] expenses = new int[12];
+    private boolean isCounted = false;
 
     public YearReport(int year) {
         this.year = year;
@@ -47,6 +48,8 @@ public class YearReport {
                 income[rep.getMonth() - 1] += rep.getAmount();
             }
         }
+
+        isCounted = true;
     }
 
     public void showInfo() {
@@ -54,7 +57,7 @@ public class YearReport {
         int incomeSum = 0;
         int expensesSum = 0;
 
-        if (income == null) countIncExp();
+        if (!isCounted) countIncExp();
 
         for (int i = 0; i < 12; i++) {
             System.out.println("profit: " + (income[i] - expenses[i]));
