@@ -41,10 +41,19 @@ public class MonthReport {
 
     public void showInfo() {
         System.out.println("month: " + month + ", year: " + year);
+        int biggestPlus = -1;
+        int biggestMinus = -1;
 
         for (MonthlyReportOne rep : monthReportData) {
-            System.out.println(rep.getItemName() + "," + rep.isExpanse() + "," + rep.getQuantity() + "," + rep.getSumOfOne());
+            if (rep.isExpanse() && (rep.getQuantity() * rep.getSumOfOne() > biggestMinus)) {
+                biggestMinus = rep.getQuantity() * rep.getSumOfOne();
+            } else if (!rep.isExpanse() && (rep.getQuantity() * rep.getSumOfOne() > biggestMinus)) {
+                biggestPlus = rep.getQuantity() * rep.getSumOfOne();
+            }
         }
+
+        System.out.println("The most big sell is: " + biggestPlus);
+        System.out.println("The most big expanse is: " + biggestMinus);
     }
 
 

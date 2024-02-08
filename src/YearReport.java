@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class YearReport {
     private int year;
     ArrayList<YearlyReportOne> yearReportData = new ArrayList<>();
+    private int[] income = new int[12];
+    private int[] expenses = new int[12];
 
     public YearReport(int year) {
         this.year = year;
@@ -37,12 +39,34 @@ public class YearReport {
 
     }
 
+    public void countIncExp() {
+        for (YearlyReportOne rep : yearReportData) {
+            if (rep.isExpense()) {
+                expenses[rep.getMonth() - 1] += rep.getAmount();
+            } else {
+                income[rep.getMonth() - 1] += rep.getAmount();
+            }
+        }
+    }
+
     public void showInfo() {
         System.out.println("year: " + year);
+        int incomeSum = 0;
+        int expensesSum = 0;
 
-        for (YearlyReportOne rep : yearReportData) {
-            System.out.println(rep.getMonth() + "," + rep.getAmount() + "," + rep.isExpense());
+        if (income == null) countIncExp();
+
+        for (int i = 0; i < 12; i++) {
+            System.out.println("profit: " + (income[i] - expenses[i]));
         }
+
+        for (int i = 0; i < 12; i++) {
+            incomeSum += income[i];
+            expensesSum = expenses[i];
+        }
+
+        System.out.println("average income of all month in a year: " + (incomeSum / 12));
+        System.out.println("average expenseSum of all month in a year: " + (expensesSum / 12));
     }
 
 
