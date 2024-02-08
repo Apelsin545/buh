@@ -5,8 +5,8 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class MonthReport {
-    int month;
-    int year;
+    private int month;
+    private int year;
     ArrayList<MonthlyReportOne> monthReportData = new ArrayList<>();
 
     public MonthReport(int month, int year) {
@@ -37,6 +37,14 @@ public class MonthReport {
             monthReportData.add(lineToWrite);
         }
 
+    }
+
+    public void showInfo() {
+        System.out.println("month: " + month + ", year: " + year);
+
+        for (MonthlyReportOne rep : monthReportData) {
+            System.out.println(  );
+        }
     }
 
 

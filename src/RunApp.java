@@ -56,6 +56,10 @@ public class RunApp {
                 }
             } else if (mode == 3) {
 
+            } else if (mode == 4) {
+                System.out.println("Info about monthly reports.");
+            } else if (mode == 5) {
+
             }
 
 

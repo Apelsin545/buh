@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class YearReport {
-    int year;
+    private int year;
     ArrayList<YearlyReportOne> yearReportData = new ArrayList<>();
 
     public YearReport(int year) {
@@ -36,4 +36,6 @@ public class YearReport {
         }
 
     }
+
+
 }
