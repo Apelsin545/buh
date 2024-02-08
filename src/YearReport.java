@@ -37,5 +37,13 @@ public class YearReport {
 
     }
 
+    public void showInfo() {
+        System.out.println("year: " + year);
+
+        for (YearlyReportOne rep : yearReportData) {
+            System.out.println(rep.getMonth() + "," + rep.getAmount() + "," + rep.isExpense());
+        }
+    }
+
 
 }

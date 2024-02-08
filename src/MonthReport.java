@@ -43,7 +43,7 @@ public class MonthReport {
         System.out.println("month: " + month + ", year: " + year);
 
         for (MonthlyReportOne rep : monthReportData) {
-            System.out.println(  );
+            System.out.println(rep.getItemName() + "," + rep.isExpanse() + "," + rep.getQuantity() + "," + rep.getSumOfOne());
         }
     }
 

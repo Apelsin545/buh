@@ -58,8 +58,16 @@ public class RunApp {
 
             } else if (mode == 4) {
                 System.out.println("Info about monthly reports.");
-            } else if (mode == 5) {
 
+                for (MonthReport rep : monthReports) {
+                    rep.showInfo();
+                }
+            } else if (mode == 5) {
+                System.out.println("Info about yearly reports.");
+
+                for (YearReport rep : yearReports) {
+                    rep.showInfo();
+                }
             }
 
 
