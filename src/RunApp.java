@@ -55,7 +55,22 @@ public class RunApp {
                     }
                 }
             } else if (mode == 3) {
+                boolean isThereAMistake = false;
 
+                for (YearReport rep : yearReports) {
+                    rep.countIncExp();
+                    int j = 0;
+                    for (int i = 0; i < 12; i++) {
+                        if (rep.getIncome()[i] != 0 || rep.getExpenses()[i] != 0) {
+                            if (rep.getIncome()[i] != monthReports.get(j).getIncomeSum()) {
+                                System.out.println("month, where there is a mistake is: " + "0" + (i + 1));
+
+                                isThereAMistake = true;
+                            }
+                        }
+                    }
+                }
+                if (!isThereAMistake) System.out.println("no mistakes detected");
             } else if (mode == 4) {
                 System.out.println("Info about monthly reports.");
 

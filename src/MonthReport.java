@@ -18,11 +18,13 @@ public class MonthReport {
     }
 
     public void countIncExp() {
-        for (MonthlyReportOne rep : monthReportData) {
-            if (rep.isExpanse()) {
-                expensesSum += rep.getSumOfOne() * rep.getQuantity();
-            } else {
-                incomeSum += rep.getSumOfOne() * rep.getQuantity();
+        if (!isCounted) {
+            for (MonthlyReportOne rep : monthReportData) {
+                if (rep.isExpanse()) {
+                    expensesSum += rep.getSumOfOne() * rep.getQuantity();
+                } else {
+                    incomeSum += rep.getSumOfOne() * rep.getQuantity();
+                }
             }
         }
 
@@ -71,5 +73,11 @@ public class MonthReport {
         System.out.println("The most big expanse is: " + biggestMinus);
     }
 
+    public int getIncomeSum() {
+        return incomeSum;
+    }
 
+    public int getExpensesSum() {
+        return expensesSum;
+    }
 }

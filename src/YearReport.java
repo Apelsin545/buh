@@ -41,11 +41,14 @@ public class YearReport {
     }
 
     public void countIncExp() {
-        for (YearlyReportOne rep : yearReportData) {
-            if (rep.isExpense()) {
-                expenses[rep.getMonth() - 1] += rep.getAmount();
-            } else {
-                income[rep.getMonth() - 1] += rep.getAmount();
+
+        if (!isCounted) {
+            for (YearlyReportOne rep : yearReportData) {
+                if (rep.isExpense()) {
+                    expenses[rep.getMonth() - 1] += rep.getAmount();
+                } else {
+                    income[rep.getMonth() - 1] += rep.getAmount();
+                }
             }
         }
 
@@ -72,5 +75,11 @@ public class YearReport {
         System.out.println("average expenseSum of all month in a year: " + (expensesSum / 12));
     }
 
+    public int[] getIncome() {
+        return income;
+    }
 
+    public int[] getExpenses() {
+        return expenses;
+    }
 }
